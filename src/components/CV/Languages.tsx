@@ -1,5 +1,4 @@
 import { cvData, LanguageData } from "../../data/mockData";
-import * as FlagIcons from "country-flag-icons/string/3x2";
 
 // Mapping de códigos de idioma a códigos de país (ISO 639-1 -> ISO 3166-1)
 const langCodeToCountryCode: Record<string, string> = {
@@ -40,12 +39,12 @@ function LanguageCard({ lang }: { lang: LanguageData }) {
   };
 
   // Determine color based on level
-  const getColorClass = (level: string) => {
-    if (level.includes("Nativo")) return levelColors["Nativo"];
-    if (level.includes("Muy Alto") || level.includes("B2")) return levelColors["Muy Alto"];
-    if (level.includes("Alto") || level.includes("B1")) return levelColors["Alto"];
-    return levelColors["Intermedio"];
-  };
+  //const getColorClass = (level: string) => {
+  //  if (level.includes("Nativo")) return levelColors["Nativo"];
+  //  if (level.includes("Muy Alto") || level.includes("B2")) return levelColors["Muy Alto"];
+  //  if (level.includes("Alto") || level.includes("B1")) return levelColors["Alto"];
+  //  return levelColors["Intermedio"];
+  //};
 
   const flagSvgUrl = getFlagSvg(lang.langcode);
 
