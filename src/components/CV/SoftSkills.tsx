@@ -1,6 +1,9 @@
+import { useTranslation } from "../../i18n";
 import { cvData } from "../../data/mockData";
 
 export function SoftSkills() {
+  const { t } = useTranslation();
+  
   return (
     <section className="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50 backdrop-blur-sm hover:border-violet-500/30 transition-all duration-300">
       <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
@@ -9,7 +12,7 @@ export function SoftSkills() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
         </span>
-        Aptitudes Personales
+        {t("section.softSkills")}
       </h2>
       
       <div className="flex flex-wrap gap-2">
@@ -19,7 +22,7 @@ export function SoftSkills() {
             className="px-4 py-2 bg-gradient-to-r from-violet-500/10 to-purple-500/10 text-violet-300 rounded-lg text-sm font-medium border border-violet-500/20 hover:border-violet-500/40 hover:from-violet-500/20 hover:to-purple-500/20 transition-all duration-200 hover:scale-105"
             style={{ animationDelay: `${index * 50}ms` }}
           >
-            {skill}
+            {t(skill)}
           </span>
         ))}
       </div>

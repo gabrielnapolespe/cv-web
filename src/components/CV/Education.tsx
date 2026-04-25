@@ -1,6 +1,8 @@
+import { useTranslation } from "../../i18n";
 import { cvData, EducationData } from "../../data/mockData";
 
 function EducationCard({ edu }: { edu: EducationData }) {
+  const { t } = useTranslation();
   return (
     <div className="bg-slate-800/30 rounded-lg p-5 hover:bg-slate-800/50 transition-colors duration-300 border border-slate-700/30 hover:border-emerald-500/30">
       <div className="flex items-start gap-4">
@@ -13,7 +15,7 @@ function EducationCard({ edu }: { edu: EducationData }) {
         </div>
         
         <div className="flex-1">
-          <h3 className="text-lg font-semibold text-white mb-1">{edu.degree}</h3>
+          <h3 className="text-lg font-semibold text-white mb-1">{t(edu.degree)}</h3>
           <p className="text-emerald-400 font-medium">{edu.institution}</p>
           
           <div className="flex flex-wrap items-center gap-3 mt-3">
@@ -36,6 +38,8 @@ function EducationCard({ edu }: { edu: EducationData }) {
 }
 
 export function Education() {
+  const { t } = useTranslation();
+  
   return (
     <section className="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50 backdrop-blur-sm hover:border-emerald-500/30 transition-all duration-300">
       <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
@@ -45,7 +49,7 @@ export function Education() {
             <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
           </svg>
         </span>
-        Educación
+        {t("section.education")}
       </h2>
       
       <div className="space-y-4">

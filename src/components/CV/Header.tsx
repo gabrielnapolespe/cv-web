@@ -1,7 +1,9 @@
 import { cvData } from "../../data/mockData";
+import { useTranslation } from "../../i18n";
 
 export function Header() {
   const { personal } = cvData;
+  const { t } = useTranslation();
 
   return (
     <header className="relative overflow-hidden">
@@ -31,7 +33,7 @@ export function Header() {
               {personal.title}
             </p>
             <p className="text-lg text-slate-400 mb-6">
-              {personal.subtitle}
+              {t(personal.subtitle)}
             </p>
 
             {/* Contact buttons */}

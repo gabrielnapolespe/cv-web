@@ -7,9 +7,13 @@ import { Certifications } from "./Certifications";
 import { Languages } from "./Languages";
 import { SoftSkills } from "./SoftSkills";
 import { Projects } from "./Projects";
+import { LanguageSelector } from "../LanguageSelector";
 import { cvData } from "../../data/mockData";
+import { LanguageProvider, useTranslation } from "../../i18n";
 
-export function CVLayout() {
+function CVContent() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Background pattern */}
@@ -21,6 +25,11 @@ export function CVLayout() {
 
       {/* Content */}
       <div className="relative z-10">
+        {/* Language Selector positioned in top-right */}
+        <div className="absolute top-4 right-4 z-20">
+          <LanguageSelector />
+        </div>
+
         <Header />
 
         <main className="container mx-auto px-4 md:px-6 py-8 md:py-12">
@@ -44,7 +53,7 @@ export function CVLayout() {
               <Skills />
               <Languages />
               <SoftSkills />
-              
+
               {/* Interests */}
               <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50 backdrop-blur-sm hover:border-indigo-500/30 transition-all duration-300">
                 <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
@@ -53,7 +62,7 @@ export function CVLayout() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                     </svg>
                   </span>
-                  Intereses
+                  {t("section.interests")}
                 </h2>
                 <div className="flex flex-wrap gap-2">
                   {cvData.interests.map((interest) => (
@@ -61,7 +70,7 @@ export function CVLayout() {
                       key={interest}
                       className="px-3 py-1.5 bg-indigo-500/10 text-indigo-300 rounded-lg text-sm border border-indigo-500/20"
                     >
-                      {interest}
+                      {t(interest)}
                     </span>
                   ))}
                 </div>
@@ -76,7 +85,7 @@ export function CVLayout() {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Descargar CV (PDF)
+                {t("cv.download")}
               </a>
             </div>
           </div>
@@ -89,11 +98,19 @@ export function CVLayout() {
               {cvData.personal.name} • {cvData.personal.title}
             </p>
             <p className="text-slate-600 text-xs mt-2">
-              © {new Date().getFullYear()} — Hecho con React + TypeScript
+              © {new Date().getFullYear()} — {t("footer.madeWith")}
             </p>
           </div>
         </footer>
       </div>
     </div>
+  );
+}
+
+export function CVLayout() {
+  return (
+    <LanguageProvider>
+      <CVContent />
+    </LanguageProvider>
   );
 }
