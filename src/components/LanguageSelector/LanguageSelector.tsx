@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation, Language } from "../../i18n";
+import { getFlagSvg } from "../CV/Languages";
 
 interface LanguageOption {
   code: Language;
@@ -38,6 +39,8 @@ export function LanguageSelector() {
     setIsOpen(false);
   };
 
+  const flagSvgUrl = getFlagSvg(currentLang.code);
+
   return (
     <div className="relative" ref={dropdownRef}>
       {/* Botón principal */}
@@ -48,9 +51,17 @@ export function LanguageSelector() {
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
-        <span className="text-lg" aria-hidden="true">
-          {currentLang.flag}
+      {flagSvgUrl ? (
+        <img 
+          src={flagSvgUrl} 
+          alt={t(currentLang.label)}
+          className="w-8 h-6 object-cover rounded-sm"
+        />
+      ) : (
+        <span className="w-8 h-6 bg-slate-700 rounded-sm flex items-center justify-center text-xs text-slate-500">
+          {currentLang.code}
         </span>
+      )}
         <span className="text-sm font-medium hidden sm:inline">{currentLang.label}</span>
         {/* Chevron */}
         <svg
@@ -82,9 +93,20 @@ export function LanguageSelector() {
               role="option"
               aria-selected={lang.code === language}
             >
-              <span className="text-lg" aria-hidden="true">
-                {lang.flag}
-              </span>
+              {(() => {
+                const langFlag = getFlagSvg(lang.code);
+                return langFlag ? (
+                  <img 
+                    src={langFlag} 
+                    alt={lang.label}
+                    className="w-8 h-6 object-cover rounded-sm"
+                  />
+                ) : (
+                  <span className="w-8 h-6 bg-slate-700 rounded-sm flex items-center justify-center text-xs text-slate-500 uppercase">
+                    {lang.code}
+                  </span>
+                );
+              })()}
               <span className="text-sm font-medium">{lang.label}</span>
               {/* Check si es el idioma activo */}
               {lang.code === language && (

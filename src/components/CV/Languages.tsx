@@ -22,7 +22,7 @@ const langCodeToCountryCode: Record<string, string> = {
 };
 
 // Función para obtener el SVG del flag usando el langcode
-function getFlagSvg(langcode: string): string | null {
+export function getFlagSvg(langcode: string): string | null {
   const countryCode = langCodeToCountryCode[langcode.toUpperCase()];
   if (!countryCode) return null;
   
