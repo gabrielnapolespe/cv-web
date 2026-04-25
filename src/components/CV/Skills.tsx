@@ -1,5 +1,5 @@
 import { useTranslation } from "../../i18n";
-import { cvData } from "../../data/mockData";
+import { cvData } from "../../data/cvData";
 
 function SkillBar({ name, level }: { name: string; level: number }) {
   return (

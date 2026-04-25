@@ -1,5 +1,5 @@
 import { useTranslation } from "../../i18n";
-import { cvData, ExperienceData } from "../../data/mockData";
+import { cvData, ExperienceData } from "../../data/cvData";
 
 function ExperienceCard({ exp }: { exp: ExperienceData }) {
     const { t } = useTranslation();

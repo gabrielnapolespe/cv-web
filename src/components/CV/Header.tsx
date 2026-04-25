@@ -1,4 +1,4 @@
-import { cvData } from "../../data/mockData";
+import { cvData } from "../../data/cvData";
 import { useTranslation } from "../../i18n";
 
 export function Header() {

@@ -8,7 +8,7 @@ import { Languages } from "./Languages";
 import { SoftSkills } from "./SoftSkills";
 import { Projects } from "./Projects";
 import { LanguageSelector } from "../LanguageSelector";
-import { cvData } from "../../data/mockData";
+import { cvData } from "../../data/cvData";
 import { LanguageProvider, useTranslation } from "../../i18n";
 
 function CVContent() {

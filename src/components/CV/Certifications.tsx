@@ -1,5 +1,5 @@
 import { useTranslation } from "../../i18n";
-import { cvData, CertificationData } from "../../data/mockData";
+import { cvData, CertificationData } from "../../data/cvData";
 
 function CertificationCard({ cert }: { cert: CertificationData }) {
   const { t } = useTranslation();

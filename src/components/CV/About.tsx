@@ -1,5 +1,5 @@
 import { useTranslation } from "../../i18n";
-import { cvData } from "../../data/mockData";
+import { cvData } from "../../data/cvData";
 
 export function About() {
   const { t } = useTranslation();

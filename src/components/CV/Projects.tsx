@@ -1,6 +1,6 @@
 import { useTranslation } from "../../i18n";
 import { useGitHubRepos, getLanguageColor, formatDate } from "../../hooks/useGitHubRepos";
-import { cvData } from "../../data/mockData";
+import { cvData } from "../../data/cvData";
 
 function RepoCard({ repo }: { repo: ReturnType<typeof useGitHubRepos>["repos"][number] }) {
   const { t } = useTranslation();
